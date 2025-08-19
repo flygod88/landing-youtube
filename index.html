@@ -1,217 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Abrir en el navegador → YouTube</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ir a YouTube</title>
   <style>
-    :root {
-      --bg: #0f1115;
-      --fg: #e6e6e6;
-      --muted: #a5abb3;
-      --accent: #ff3b30; /* rojo estilo YouTube */
-      --card: #171a20;
-    }
-    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      background: var(--bg);
-      color: var(--fg);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-    .card {
-      max-width: 720px;
-      width: 100%;
-      background: var(--card);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      position: relative;
-      overflow: hidden;
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: 1.6rem;
-      line-height: 1.2;
-    }
-    p.lead {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-    .steps {
-      margin: 18px 0 10px;
-      padding-left: 18px;
-    }
-    .steps li { margin: 8px 0; }
-    .btns {
-      margin-top: 18px;
-      display: grid;
-      gap: 10px;
-    }
-    .btn {
-      appearance: none;
-      border: 0;
-      border-radius: 14px;
-      padding: 14px 16px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .primary { background: var(--accent); color: white; }
-    .secondary { background: #2a2f39; color: var(--fg); }
-    .tiny { font-size: .9rem; color: var(--muted); margin-top: 8px; }
-    .yt {
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
+      min-height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+      background: #f7f7f7;
+      text-align: center;
     }
-    .yt svg { height: 20px; width: 24px; }
-    /* Flecha animada apuntando arriba a la derecha */
-    .arrow-wrap {
-      position: fixed;
-      top: 6px;
-      right: 6px;
-      width: 140px;
-      height: 140px;
-      pointer-events: none;
-      opacity: 0.9;
+    a {
+      color: red;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
     }
-    .arrow {
-      position: absolute;
-      right: 0;
-      top: 0;
-      transform: translate(10px, -10px) rotate(-35deg);
-      transform-origin: 100% 0%;
-      animation: bounce 1.4s infinite ease-in-out;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+    a:hover {
+      text-decoration: underline;
     }
-    @keyframes bounce {
-      0%, 100% { transform: translate(10px, -10px) rotate(-35deg) scale(1); }
-      50% { transform: translate(3px, -16px) rotate(-35deg) scale(1.06); }
+    img {
+      max-width: 250px;
+      margin-top: 20px;
     }
-    .hint {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      background: rgba(23,26,32,.85);
-      border: 1px solid rgba(255,255,255,.08);
-      color: #fff;
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-weight: 700;
-      max-width: 240px;
-      font-size: .95rem;
-      text-align: right;
-    }
-    .hidden { display: none; }
-    .ok-redirect { color: #9be39b; }
-    .copy-done { color: #9be39b; font-weight: 700; }
-    .logo {
-      display: inline-flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px
-    }
-    .logo .pill { background:#e11d48; color:#fff; padding:6px 10px; border-radius:999px; font-size:.85rem }
   </style>
 </head>
 <body>
-  <!-- Flecha y bocadillo de ayuda (apuntan arriba a la derecha) -->
-  <div id="tiktokHints" class="hidden">
-    <div class="arrow-wrap" aria-hidden="true">
-      <svg class="arrow" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 115 C60 90, 70 60, 105 25" stroke="white" stroke-width="6" stroke-linecap="round"/>
-        <polygon points="103,18 118,22 110,34" fill="white"/>
-      </svg>
-    </div>
-    <div class="hint">Pulsa <strong>“Abrir en el navegador”</strong> para ir directito a mi canal de YouTube.</div>
-  </div>
 
-  <main class="card">
-    <div class="logo"><span class="pill">fined4u</span> <span>→ YouTube</span></div>
-    <h1>¿Estás en TikTok?</h1>
-    <p class="lead">Si ves esto dentro del navegador de TikTok, toca arriba a la derecha <strong>“Abrir en el navegador”</strong>. Ahí se abrirá mi canal en la app de YouTube.</p>
+  <a href="https://www.youtube.com/@TU_CANAL" target="_blank">
+    👉 Haz clic aquí para ir a mi YouTube
+  </a>
 
-    <ol class="steps">
-      <li>Arriba a la derecha, toca <em>Abrir en el navegador</em>.</li>
-      <li>Cuando se abra fuera de TikTok, te llevo directo a mi canal.</li>
-    </ol>
+  <img src="monigote.png" alt="Monigote apuntando hacia arriba">
 
-    <div class="btns">
-      <button id="openApp" class="btn primary yt">
-        <!-- YouTube icon -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2s-.2-1.7-.8-2.5c-.8-.9-1.6-1-2-1.1C17.6 2.2 12 2.2 12 2.2h0s-5.6 0-8.7.4c-.4 0-1.2.2-2 1.1C.7 4.5.5 6.2.5 6.2S0 8.1 0 10v1.9c0 1.9.5 3.8.5 3.8s.2 1.7.8 2.5c.8.9 1.8.9 2.2 1 1.6.2 6.5.4 8.5.4s7-.1 8.6-.4c.4-.1 1.4-.1 2.2-1 .6-.8.8-2.5.8-2.5S24 13.9 24 12v-2c0-1.9-.5-3.8-.5-3.8zM9.6 14.9V7.1l6.2 3.9-6.2 3.9z" fill="#fff"/></svg>
-        Abrir en YouTube
-      </button>
-      <a id="openWeb" class="btn secondary" href="https://www.youtube.com/@fined4u?sub_confirmation=1" rel="noopener">Abrir en el navegador</a>
-      <button id="copyUrl" class="btn secondary">Copiar enlace</button>
-      <div id="copyState" class="tiny"></div>
-      <div id="status" class="tiny"></div>
-    </div>
-  </main>
-
-  <script>
-    (function(){
-      const YT_WEB = "https://www.youtube.com/@fined4u?sub_confirmation=1";
-      const YT_APP = "youtube://www.youtube.com/@fined4u?sub_confirmation=1";
-
-      const ua = navigator.userAgent || "";
-      const inTikTok = /tiktok/i.test(ua);
-      const inInstagram = /instagram/i.test(ua); // por si acaso
-
-      const hints = document.getElementById("tiktokHints");
-      const status = document.getElementById("status");
-      const copyBtn = document.getElementById("copyUrl");
-      const copyState = document.getElementById("copyState");
-      const openApp = document.getElementById("openApp");
-      const openWeb = document.getElementById("openWeb");
-
-      // Mostrar flecha y bocadillo solo si UA parece TikTok
-      if (inTikTok || inInstagram) {
-        hints.classList.remove("hidden");
-        status.textContent = "Consejo: primero abre esto en tu navegador (Safari/Chrome).";
-      } else {
-        // Fuera de TikTok → intentamos abrir la app y caemos a la web
-        status.innerHTML = "Abriendo la app de YouTube…";
-        // Intento de deep link
-        window.location.replace(YT_APP);
-        // Fallback a web después de 1200ms
-        setTimeout(() => {
-          status.innerHTML = "Si la app no se abrió, te llevo a la versión web.";
-          window.location.href = YT_WEB;
-        }, 1200);
-      }
-
-      // Botón: intentar abrir app (por si el usuario ya salió de TikTok)
-      openApp.addEventListener("click", function(){
-        try {
-          window.location.href = YT_APP;
-          setTimeout(() => { window.location.href = YT_WEB; }, 1200);
-        } catch(e) {
-          window.location.href = YT_WEB;
-        }
-      });
-
-      // Copiar URL al portapapeles (plan B rápido)
-      copyBtn.addEventListener("click", async function(){
-        try {
-          await navigator.clipboard.writeText(YT_WEB);
-          copyState.textContent = "Enlace copiado ✅ pégalo en tu navegador.";
-          copyState.className = "tiny copy-done";
-        } catch (e) {
-          copyState.textContent = YT_WEB;
-          copyState.className = "tiny";
-        }
-      });
-
-      // Asegurar que el enlace "Abrir en el navegador" abra fuera si el entorno lo permite
-      openWeb.addEventListener("click", function(e){
-        // En algunos navegadores integrados, intentar target=_blank puede abrir fuera
-        this.setAttribute("target", "_blank");
-      });
-    })();
-  </script>
 </body>
 </html>
